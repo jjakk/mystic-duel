@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class FireballSpawning : MonoBehaviour {
     public Fireball fireball;
+    [SerializeField]private float spawnDelay;
     // Start is called before the first frame update
     void Start() {
-        Instantiate(fireball, new Vector3(-5, 5, 0), Quaternion.identity);
+        StartCoroutine(startSpawning());
     }
 
     // Update is called once per frame
     void Update() {
         
+    }
+    IEnumerator startSpawning(){
+        yield return new WaitForSeconds(spawnDelay);
+        spawnFireball();
+    }
+    void spawnFireball() {
+        Instantiate(fireball, new Vector3(Random.Range(-7.5f, 7.5f), 5, 0), Quaternion.identity);
+        StartCoroutine(startSpawning());
     }
 }

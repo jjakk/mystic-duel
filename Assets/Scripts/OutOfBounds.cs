@@ -3,24 +3,20 @@ public class OutOfBounds : MonoBehaviour
 {
     private Rigidbody2D rb;
     float x,y;
+    private PlayerMovement playerMovement;
     void Start() {
+        playerMovement = GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody2D>();
         y = Camera.main.orthographicSize;
         x = Camera.main.aspect*y;
     }
 
     void Update() {
-        if(transform.position.x > x && rb.velocity.x>0){
-            transform.position = new Vector2(-x,transform.position.y);
-        }
-        else if(transform.position.x< -x && rb.velocity.x<0){
-            transform.position = new Vector2(x,transform.position.y);
-        }
-        if(transform.position.y > y && rb.velocity.y>0){
-            transform.position = new Vector2(transform.position.x,-y);
-        }
-        else if(transform.position.y< -y && rb.velocity.y<0){
-            transform.position = new Vector2(transform.position.x,y);
+        if(
+            (transform.position.x > x && rb.velocity.x > 0) || 
+            (transform.position.x< -x && rb.velocity.x < 0)
+        ){
+            playerMovement.flipDirection();
         }
     }
 
