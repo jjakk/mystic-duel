@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerMovement : MonoBehaviour {
+public class Player : MonoBehaviour {
     protected Rigidbody2D rigidBody;
     enum Direction { Idle, Left, Right };
     private Direction direction;
     public int moveSpeed;
+    public int maxHealth;
+    private int health;
+    private int score;
+    public Image healthBar;
 
     // Start is called before the first frame update
     void Start() {
+        score = 0;
+        health = maxHealth;
         direction = Direction.Idle;
         rigidBody = GetComponent<Rigidbody2D>();
     }
@@ -28,7 +35,21 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    public void takeDamage(int damage) {
+        health -= damage;
+        healthBar.fillAmount = ((float)health / maxHealth);
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void incrementScore() {
+        score += 1;
+    }
+
     public void flipDirection() {
+        moveSpeed = Random.Range(2, 12);
         if(direction == Direction.Right) {
             direction = Direction.Left;
         }

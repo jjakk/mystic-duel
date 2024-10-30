@@ -3,9 +3,9 @@ public class OutOfBounds : MonoBehaviour
 {
     private Rigidbody2D rb;
     float x,y;
-    private PlayerMovement playerMovement;
+    private Player player;
     void Start() {
-        playerMovement = GetComponent<PlayerMovement>();
+        player = GetComponent<Player>();
         rb = GetComponent<Rigidbody2D>();
         y = Camera.main.orthographicSize;
         x = Camera.main.aspect*y;
@@ -16,7 +16,7 @@ public class OutOfBounds : MonoBehaviour
             (transform.position.x > x && rb.velocity.x > 0) || 
             (transform.position.x< -x && rb.velocity.x < 0)
         ){
-            playerMovement.flipDirection();
+            player.flipDirection();
         }
     }
 
