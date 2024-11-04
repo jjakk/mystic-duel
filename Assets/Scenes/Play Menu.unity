@@ -405,7 +405,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Settings
+  m_text: Back
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a775bf84f0d9e47f8a36641e2c62c709, type: 2}
   m_sharedMaterial: {fileID: 6724876773289648236, guid: a775bf84f0d9e47f8a36641e2c62c709, type: 2}
@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 596923685}
   - component: {fileID: 596923684}
   m_Layer: 5
-  m_Name: Play
+  m_Name: SinglePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -519,7 +519,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 14, y: 34}
-  m_SizeDelta: {x: 250, y: 50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &596923684
 MonoBehaviour:
@@ -565,9 +565,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 854354490}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: LoadPlayMenu
+      - m_Target: {fileID: 854354491}
+        m_TargetAssemblyTypeName: PlayMenu, Assembly-CSharp
+        m_MethodName: LoadGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -696,6 +696,7 @@ GameObject:
   - component: {fileID: 854354487}
   - component: {fileID: 854354486}
   - component: {fileID: 854354490}
+  - component: {fileID: 854354491}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -801,6 +802,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f027f37c8762444db59169215d2552a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &854354491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854354485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c752e7928ad5a43c683684bbf77028d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1218374001
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,7 +871,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Instructions
+  m_text: Multi Player
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a775bf84f0d9e47f8a36641e2c62c709, type: 2}
   m_sharedMaterial: {fileID: 6724876773289648236, guid: a775bf84f0d9e47f8a36641e2c62c709, type: 2}
@@ -948,7 +961,7 @@ GameObject:
   - component: {fileID: 1566387114}
   - component: {fileID: 1566387113}
   m_Layer: 5
-  m_Name: Settings
+  m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -972,7 +985,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 16, y: -135}
-  m_SizeDelta: {x: 250, y: 50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1566387113
 MonoBehaviour:
@@ -1017,7 +1030,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1566387114}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 854354491}
+        m_TargetAssemblyTypeName: PlayMenu, Assembly-CSharp
+        m_MethodName: BackToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1566387114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1113,7 +1138,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play
+  m_text: 'Single Player
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a775bf84f0d9e47f8a36641e2c62c709, type: 2}
   m_sharedMaterial: {fileID: 6724876773289648236, guid: a775bf84f0d9e47f8a36641e2c62c709, type: 2}
@@ -1203,7 +1230,7 @@ GameObject:
   - component: {fileID: 2083185625}
   - component: {fileID: 2083185624}
   m_Layer: 5
-  m_Name: Instructions
+  m_Name: MultiPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1227,7 +1254,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 14, y: -51}
-  m_SizeDelta: {x: 250, y: 50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2083185624
 MonoBehaviour:

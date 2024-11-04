@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class PlayMenu : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start() {
@@ -15,9 +15,12 @@ public class MainMenu : MonoBehaviour
         
     }
     public void ClickAndLoad(){
-        Invoke("LoadPlayMenu", 0.3f);
+        Invoke("LoadGame", 0.3f);
     }
-    public void LoadPlayMenu(){
-        SceneManager.LoadScene("Play Menu");
+    public void LoadGame(){
+        SceneManager.LoadScene("Game");
+    }
+    public void BackToMainMenu(){
+        SceneManager.LoadScene("Main Menu");
     }
 }

@@ -6,6 +6,7 @@ public class Fireball : MonoBehaviour {
     [SerializeField]private float lifespan;
     [SerializeField]private int damage;
     [SerializeField]private Player player;
+    public static int score = 0;
     // Start is called before the first frame update
     void Start() {
         StartCoroutine(startCountdown());
@@ -13,7 +14,10 @@ public class Fireball : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        
+        if (transform.position.y < -5) {
+            score++;
+            Destroy(this.gameObject);
+        }
     }
     void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "player"){

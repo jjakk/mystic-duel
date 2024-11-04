@@ -49,7 +49,6 @@ public class Player : MonoBehaviour {
     }
 
     public void flipDirection() {
-        moveSpeed = Random.Range(2, 12);
         if(direction == Direction.Right) {
             direction = Direction.Left;
         }
