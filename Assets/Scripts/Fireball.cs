@@ -20,7 +20,8 @@ public class Fireball : MonoBehaviour {
         }
     }
     void OnTriggerEnter2D(Collider2D other) {
-        if(other.tag == "player"){
+        Debug.Log(other.tag);
+        if(other.tag == "Player"){
             other.GetComponent<Player>().takeDamage(damage);
             Destroy(this.gameObject);
         }
