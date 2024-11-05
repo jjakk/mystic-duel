@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifespan: 2
   damage: 1
-  player: {fileID: 0}
+  player: {fileID: 6141068125333198883, guid: e10bdf37b8c7749dda815423b41dcd31, type: 3}
 --- !u!61 &-1280361821478424228
 BoxCollider2D:
   m_ObjectHideFlags: 0

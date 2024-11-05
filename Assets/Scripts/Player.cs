@@ -10,21 +10,18 @@ public class Player : MonoBehaviour {
     public int moveSpeed;
     public int maxHealth;
     private int health;
-    private int score;
+    // private int highScore;
     public Image healthBar;
 
     // Start is called before the first frame update
     void Start() {
-        score = 0;
-        health = maxHealth;
-        direction = Direction.Idle;
-        rigidBody = GetComponent<Rigidbody2D>();
+        this.reset();
     }
 
     // Update is called once per frame
     void Update() {
         if(Input.GetKeyDown(KeyCode.Space)) {
-            flipDirection();
+            this.flipDirection();
         }
 
         if(direction == Direction.Right) {
@@ -34,6 +31,12 @@ public class Player : MonoBehaviour {
             rigidBody.velocity = new Vector2(-1 * moveSpeed, 0);
         }
     }
+    public void reset() {
+        GameManager.resetScore();
+        health = maxHealth;
+        direction = Direction.Idle;
+        rigidBody = GetComponent<Rigidbody2D>();
+    }
 
     public void takeDamage(int damage) {
         health -= damage;
@@ -42,10 +45,6 @@ public class Player : MonoBehaviour {
 
     public int getHealth() {
         return health;
-    }
-
-    public void incrementScore() {
-        score += 1;
     }
 
     public void flipDirection() {
