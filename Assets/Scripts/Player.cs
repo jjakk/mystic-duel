@@ -12,10 +12,12 @@ public class Player : MonoBehaviour {
     private int health;
     // private int highScore;
     public Image healthBar;
+    private ScreenShake screenShake;
 
     // Start is called before the first frame update
     void Start() {
         this.reset();
+        screenShake = Camera.main.GetComponent<ScreenShake>();
     }
 
     // Update is called once per frame
@@ -41,6 +43,7 @@ public class Player : MonoBehaviour {
     public void takeDamage(int damage) {
         health -= damage;
         healthBar.fillAmount = ((float)health / maxHealth);
+        screenShake.TriggerShake();
     }
 
     public int getHealth() {
