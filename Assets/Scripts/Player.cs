@@ -10,6 +10,7 @@ public class Player : MonoBehaviour {
     public int moveSpeed;
     public int maxHealth;
     private int health;
+    private bool isEnabled;
     // private int highScore;
     public Image healthBar;
     private ScreenShake screenShake;
@@ -22,8 +23,11 @@ public class Player : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if(Input.GetKeyDown(KeyCode.Space)) {
-            this.flipDirection();
+        if(isEnabled) {
+            if(Input.GetKeyDown(KeyCode.Space)) {
+                GameManager.decrementScore();
+                this.flipDirection();
+            }
         }
 
         if(direction == Direction.Right) {
@@ -36,6 +40,7 @@ public class Player : MonoBehaviour {
     public void reset() {
         GameManager.resetScore();
         health = maxHealth;
+        enable();
         direction = Direction.Idle;
         rigidBody = GetComponent<Rigidbody2D>();
     }
@@ -48,6 +53,18 @@ public class Player : MonoBehaviour {
 
     public int getHealth() {
         return health;
+    }
+
+    public bool getIsEnabled() {
+        return isEnabled;
+    }
+
+    public void enable() {
+        isEnabled = true;
+    }
+
+    public void disable() {
+        isEnabled = false;
     }
 
     public void flipDirection() {

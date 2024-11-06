@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.28, y: 5.86, z: 0}
-  m_LocalScale: {x: 1, y: 1.25, z: 1}
+  m_LocalScale: {x: 0.75, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifespan: 2
   damage: 1
-  player: {fileID: 6141068125333198883, guid: e10bdf37b8c7749dda815423b41dcd31, type: 3}
+  player: {fileID: 0}
 --- !u!61 &-1280361821478424228
 BoxCollider2D:
   m_ObjectHideFlags: 0

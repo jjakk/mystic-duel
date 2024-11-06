@@ -39,6 +39,12 @@ public class GameManager : MonoBehaviour {
             highScore = score;
         }
     }
+    public static void decrementScore() {
+        score -= 1;
+        if(score < 0) {
+            score = 0;
+        }
+    }
     public static void resetScore() {
         score = 0;
     }
@@ -49,12 +55,14 @@ public class GameManager : MonoBehaviour {
     public void Pause() {
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
+        player.disable();
         Cursor.lockState = CursorLockMode.None;
     }
 
     public void Resume() {
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
+        player.enable();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -63,6 +71,7 @@ public class GameManager : MonoBehaviour {
         hud.SetActive(false);
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
+        player.disable();
         finalScore.text = "Your Score: " + score.ToString() + "\n High Score: " + highScore.ToString();
     }
 
