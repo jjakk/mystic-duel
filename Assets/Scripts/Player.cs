@@ -15,6 +15,8 @@ public class Player : MonoBehaviour {
     public Image healthBar;
     private ScreenShake screenShake;
 
+    public KeyCode actionKey;
+
     // Start is called before the first frame update
     void Start() {
         this.reset();
@@ -24,7 +26,8 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if(isEnabled) {
-            if(Input.GetKeyDown(KeyCode.Space)) {
+            // Use the player-specific action key
+            if(Input.GetKeyDown(actionKey)) {
                 GameManager.decrementScore();
                 this.flipDirection();
             }

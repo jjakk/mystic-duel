@@ -14,12 +14,21 @@ public class PlayMenu : MonoBehaviour
     void Update() {
         
     }
-    public void ClickAndLoad(){
+
+    public void ClickAndLoadSinglePlayer(){
+        GameManager.isMultiplayer = false;  // Set to single-player mode
         Invoke("LoadGame", 0.3f);
     }
+
+    public void ClickAndLoadMultiplayer(){
+        GameManager.isMultiplayer = true;   // Set to multiplayer mode
+        Invoke("LoadGame", 0.3f);
+    }
+
     public void LoadGame(){
         SceneManager.LoadScene("Game");
     }
+
     public void BackToMainMenu(){
         SceneManager.LoadScene("Main Menu");
     }
