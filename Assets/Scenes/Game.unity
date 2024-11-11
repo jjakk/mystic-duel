@@ -325,7 +325,7 @@ Transform:
   m_GameObject: {fileID: 74220791}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.54, y: -3.64, z: 0}
+  m_LocalPosition: {x: 0, y: -3.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1188,7 +1188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96aefcb06eda24c8191308aeb88eea88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireball: {fileID: 6437651679959309933, guid: 945fa8e9601a64f8091aca42fe8d36a0, type: 3}
+  fireball: {fileID: 2465208434535214208, guid: b0ce6ef70ddc9442c80177d0a3e8bf19, type: 3}
   spawnDelay: 0.25
 --- !u!114 &519420034
 MonoBehaviour:
@@ -1344,7 +1344,10 @@ VisualEffect:
     m_Gradient:
       m_Array: []
     m_NamedObject:
-      m_Array: []
+      m_Array:
+      - m_Value: {fileID: 2800000, guid: e953aa23b03254d6bb1571c89eadc6fc, type: 3}
+        m_Name: New Texture2D
+        m_Overridden: 1
     m_Bool:
       m_Array: []
 --- !u!4 &544388215
@@ -1357,7 +1360,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.2, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.4, y: 0.35, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 74220802}
@@ -1840,7 +1843,7 @@ Transform:
 --- !u!1 &1032718642
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 1734408429932075495, guid: 09ae4b7c9429141c68337de3ad87bad2, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
