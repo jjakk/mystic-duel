@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
     // private int highScore;
     public Image healthBar;
     private ScreenShake screenShake;
+    [SerializeField] private ParticleSystem explosionParticleSystem = default ;
 
     public KeyCode actionKey;
 
@@ -51,6 +52,7 @@ public class Player : MonoBehaviour {
     public void takeDamage(int damage) {
         health -= damage;
         healthBar.fillAmount = ((float)health / maxHealth);
+        explosionParticleSystem.Play();
         screenShake.TriggerShake();
     }
 
