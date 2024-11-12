@@ -15,8 +15,9 @@ public class Player : MonoBehaviour {
     public Image healthBar;
     private ScreenShake screenShake;
     [SerializeField] private ParticleSystem explosionParticleSystem = default ;
-    [SerializeField] private GameObject smokeEffect1;
-    [SerializeField] private GameObject smokeEffect2;
+    [SerializeField] private GameObject smokeEffect10;
+    [SerializeField] private GameObject smokeEffect50;
+    [SerializeField] private GameObject smokeEffect100;
     private int lastScoreSmoke = 0;
     private GameManager gameManager;
 
@@ -26,22 +27,29 @@ public class Player : MonoBehaviour {
     void Start() {
         this.reset();
         screenShake = Camera.main.GetComponent<ScreenShake>();
-        smokeEffect1.SetActive(false);
-        smokeEffect2.SetActive(false);
+        smokeEffect10.SetActive(false);
+        smokeEffect50.SetActive(false);
+        smokeEffect100.SetActive(false);
         gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
     void Update() {
         int currentScore = GameManager.getScore();
-        if (currentScore >= lastScoreSmoke + 10)
+        if (currentScore >= lastScoreSmoke + 15)
         {
-            smokeEffect1.SetActive(true);
+            smokeEffect10.SetActive(true);
         }
 
         if (currentScore >= lastScoreSmoke + 50)
         {
-            smokeEffect2.SetActive(true);
+            smokeEffect50.SetActive(true);
+        }
+
+        if (currentScore >= lastScoreSmoke + 100)
+        {
+            smokeEffect10.SetActive(false);
+            smokeEffect100.SetActive(true);
         }
         
         if(isEnabled) {
@@ -66,8 +74,9 @@ public class Player : MonoBehaviour {
         direction = Direction.Idle;
         rigidBody = GetComponent<Rigidbody2D>();
         lastScoreSmoke = 0;
-        smokeEffect1.SetActive(false);
-        smokeEffect2.SetActive(false);
+        smokeEffect10.SetActive(false);
+        smokeEffect50.SetActive(false);
+        smokeEffect100.SetActive(false);
     }
 
     public void takeDamage(int damage) {
@@ -75,8 +84,9 @@ public class Player : MonoBehaviour {
         healthBar.fillAmount = ((float)health / maxHealth);
         explosionParticleSystem.Play();
         screenShake.TriggerShake();
-        smokeEffect1.SetActive(false);
-        smokeEffect2.SetActive(false);
+        smokeEffect10.SetActive(false);
+        smokeEffect50.SetActive(false);
+        smokeEffect100.SetActive(false);
 
         lastScoreSmoke = GameManager.getScore();
     }
