@@ -19,7 +19,7 @@ public class FireballSpawning : MonoBehaviour {
         spawnFireball();
     }
     void spawnFireball() {
-        Instantiate(fireball, new Vector3(Random.Range(-7.5f, 7.5f), 5, 0), Quaternion.identity);
+        Instantiate(fireball, new Vector3(Random.Range(-7.5f, 7.5f), 6, 0), Quaternion.identity);
         StartCoroutine(startSpawning());
     }
 }
