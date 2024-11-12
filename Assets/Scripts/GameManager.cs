@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField]private TextMeshProUGUI scoreText;
     [SerializeField]private TextMeshProUGUI finalScore;
     // Score variables
-    private static int score;
+    public static int score = 0;
     private static int highScore;
 
     public static bool isMultiplayer = false;

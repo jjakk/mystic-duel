@@ -309,6 +309,8 @@ MonoBehaviour:
   maxHealth: 10
   healthBar: {fileID: 182629894}
   explosionParticleSystem: {fileID: 2145353621}
+  smokeEffect1: {fileID: 544388212}
+  smokeEffect2: {fileID: 2094462669}
   actionKey: 0
 --- !u!212 &74220801
 SpriteRenderer:
@@ -1307,7 +1309,7 @@ GameObject:
   - component: {fileID: 544388214}
   - component: {fileID: 544388213}
   m_Layer: 0
-  m_Name: Smoke
+  m_Name: Smoke10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1392,7 +1394,7 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: 2800000, guid: e953aa23b03254d6bb1571c89eadc6fc, type: 3}
+      - m_Value: {fileID: 2800000, guid: 3c8da694b64724537b5778bbbd67045c, type: 3}
         m_Name: New Texture2D
         m_Overridden: 1
     m_Bool:
@@ -1819,6 +1821,8 @@ MonoBehaviour:
   maxHealth: 10
   healthBar: {fileID: 0}
   explosionParticleSystem: {fileID: 0}
+  smokeEffect1: {fileID: 0}
+  smokeEffect2: {fileID: 0}
   actionKey: 0
 --- !u!212 &924440339
 SpriteRenderer:
@@ -12934,7 +12938,7 @@ GameObject:
   - component: {fileID: 2094462671}
   - component: {fileID: 2094462670}
   m_Layer: 0
-  m_Name: Smoke (1)
+  m_Name: Smoke50
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13060,7 +13064,7 @@ VisualEffect:
         m_Overridden: 0
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: 2800000, guid: 2ce5c55e85304b819a1826ecbc839aa5, type: 3}
+      - m_Value: {fileID: 2800000, guid: bb8dfcd263ad4eb383a33d74a720be6f, type: 3}
         m_Name: New Texture2D
         m_Overridden: 1
     m_Bool:
@@ -13074,7 +13078,7 @@ Transform:
   m_GameObject: {fileID: 2094462669}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.20000005, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: 0.4, y: 0.35, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []

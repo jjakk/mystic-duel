@@ -15,6 +15,10 @@ public class Player : MonoBehaviour {
     public Image healthBar;
     private ScreenShake screenShake;
     [SerializeField] private ParticleSystem explosionParticleSystem = default ;
+    [SerializeField] private GameObject smokeEffect1;
+    [SerializeField] private GameObject smokeEffect2;
+    private int lastScoreSmoke = 0;
+    private GameManager gameManager;
 
     public KeyCode actionKey;
 
@@ -22,10 +26,24 @@ public class Player : MonoBehaviour {
     void Start() {
         this.reset();
         screenShake = Camera.main.GetComponent<ScreenShake>();
+        smokeEffect1.SetActive(false);
+        smokeEffect2.SetActive(false);
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
     void Update() {
+        int currentScore = GameManager.getScore();
+        if (currentScore >= lastScoreSmoke + 10)
+        {
+            smokeEffect1.SetActive(true);
+        }
+
+        if (currentScore >= lastScoreSmoke + 50)
+        {
+            smokeEffect2.SetActive(true);
+        }
+        
         if(isEnabled) {
             // Use the player-specific action key
             if(Input.GetKeyDown(actionKey)) {
@@ -47,6 +65,9 @@ public class Player : MonoBehaviour {
         enable();
         direction = Direction.Idle;
         rigidBody = GetComponent<Rigidbody2D>();
+        lastScoreSmoke = 0;
+        smokeEffect1.SetActive(false);
+        smokeEffect2.SetActive(false);
     }
 
     public void takeDamage(int damage) {
@@ -54,6 +75,10 @@ public class Player : MonoBehaviour {
         healthBar.fillAmount = ((float)health / maxHealth);
         explosionParticleSystem.Play();
         screenShake.TriggerShake();
+        smokeEffect1.SetActive(false);
+        smokeEffect2.SetActive(false);
+
+        lastScoreSmoke = GameManager.getScore();
     }
 
     public int getHealth() {
