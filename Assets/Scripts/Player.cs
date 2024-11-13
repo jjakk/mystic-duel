@@ -20,6 +20,9 @@ public class Player : MonoBehaviour {
     [SerializeField] private GameObject smokeEffect100;
     private int lastScoreSmoke = 0;
     private GameManager gameManager;
+    private AudioSource audioSource;
+
+    public AudioClip powerUpSoundEffect;
 
     public KeyCode actionKey;
 
@@ -31,6 +34,7 @@ public class Player : MonoBehaviour {
         smokeEffect50.SetActive(false);
         smokeEffect100.SetActive(false);
         gameManager = FindObjectOfType<GameManager>();
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,17 +43,20 @@ public class Player : MonoBehaviour {
         if (currentScore >= lastScoreSmoke + 15)
         {
             smokeEffect10.SetActive(true);
+            // audioSource.PlayOneShot(powerUpSoundEffect);
         }
 
         if (currentScore >= lastScoreSmoke + 50)
         {
             smokeEffect50.SetActive(true);
+            // audioSource.PlayOneShot(powerUpSoundEffect);
         }
 
         if (currentScore >= lastScoreSmoke + 100)
         {
             smokeEffect10.SetActive(false);
             smokeEffect100.SetActive(true);
+            // audioSource.PlayOneShot(powerUpSoundEffect);
         }
         
         if(isEnabled) {

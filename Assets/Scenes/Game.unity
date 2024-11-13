@@ -312,6 +312,7 @@ MonoBehaviour:
   smokeEffect10: {fileID: 544388212}
   smokeEffect50: {fileID: 2094462669}
   smokeEffect100: {fileID: 1468362068}
+  powerUpSoundEffect: {fileID: 8300000, guid: 1aef3864d3f18401db3c70b033b33858, type: 3}
   actionKey: 0
 --- !u!212 &74220801
 SpriteRenderer:
@@ -1830,6 +1831,7 @@ MonoBehaviour:
   smokeEffect10: {fileID: 0}
   smokeEffect50: {fileID: 0}
   smokeEffect100: {fileID: 0}
+  powerUpSoundEffect: {fileID: 0}
   actionKey: 0
 --- !u!212 &924440339
 SpriteRenderer:
