@@ -1240,7 +1240,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireball: {fileID: 2465208434535214208, guid: b0ce6ef70ddc9442c80177d0a3e8bf19, type: 3}
+  powerup: {fileID: 4732898471251114487, guid: 21b509c8e19a449abb8c7af678915e41, type: 3}
   spawnDelay: 0.25
+  fireballGravityScale: 1
+  spawnDelayAcceleration: 0.00005
+  fireballGravityScaleAcceleration: 0.00005
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0

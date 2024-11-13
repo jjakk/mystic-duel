@@ -81,12 +81,17 @@ public class Player : MonoBehaviour {
 
     public void takeDamage(int damage) {
         health -= damage;
+        if(health > maxHealth) {
+            health = maxHealth;
+        }
         healthBar.fillAmount = ((float)health / maxHealth);
         explosionParticleSystem.Play();
-        screenShake.TriggerShake();
-        smokeEffect10.SetActive(false);
-        smokeEffect50.SetActive(false);
-        smokeEffect100.SetActive(false);
+        if(damage > 0) {
+            screenShake.TriggerShake();
+            smokeEffect10.SetActive(false);
+            smokeEffect50.SetActive(false);
+            smokeEffect100.SetActive(false);
+        }
 
         lastScoreSmoke = GameManager.getScore();
     }
