@@ -15,7 +15,7 @@ public class ScreenShake : MonoBehaviour
 
     public void TriggerShake()
     {
-        StartCoroutine(Shake()) ;
+        StartCoroutine( Shake() ) ;
     }
 
     private IEnumerator Shake()

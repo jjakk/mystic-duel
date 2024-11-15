@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 76a3a59c3dea843fdac346cb6ef27116
+guid: a16f11e7e0d914b6db8ad68c13c6aad2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wizard_Spread_Sprite_Red_0
+      name: Fireball_v3_spread_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 4
-        width: 51
-        height: 56
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91e42255b5528442abe8d1c06f69dd4b
-      internalID: -824741510
+      spriteID: 411cef9735f134b91b6343676826e023
+      internalID: 1396348948
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wizard_Spread_Sprite_Red_1
+      name: Fireball_v3_spread_1
       rect:
         serializedVersion: 2
-        x: 72
-        y: 4
-        width: 51
-        height: 55
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0005bfe1fe0be491bb5acc8a76cc3cda
-      internalID: 478198879
+      spriteID: cf525a33a081d4fe4bca7d616d7e2dbc
+      internalID: 226182564
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wizard_Spread_Sprite_Red_2
+      name: Fireball_v3_spread_2
       rect:
         serializedVersion: 2
-        x: 136
-        y: 4
-        width: 51
-        height: 55
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 329ecb1925e544c5280f107b88b50fff
-      internalID: -1926860289
+      spriteID: 4adf282f6148f460f92786e55a2ee678
+      internalID: 1355560484
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wizard_Spread_Sprite_Red_3
+      name: Fireball_v3_spread_3
       rect:
         serializedVersion: 2
-        x: 200
-        y: 2
-        width: 51
-        height: 58
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76675fc5f717b45f3b30966eae60878d
-      internalID: 606695665
+      spriteID: eed3e44499cd74d129a51ee210e65759
+      internalID: -2022701924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wizard_Spread_Sprite_Red_4
+      name: Fireball_v3_spread_4
       rect:
         serializedVersion: 2
-        x: 264
-        y: 2
-        width: 51
-        height: 58
+        x: 256
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,113 +195,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd35a1d8927784db2be5c2251675cd57
-      internalID: -1452917450
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wizard_Spread_Sprite_Red_5
-      rect:
-        serializedVersion: 2
-        x: 325
-        y: 2
-        width: 54
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6a1acadeb44894230a8e3848acd134a1
-      internalID: 891477895
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wizard_Spread_Sprite_Red_6
-      rect:
-        serializedVersion: 2
-        x: 389
-        y: 3
-        width: 54
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 242ad4d11d0a64884abddf9c2f6039d2
-      internalID: -1816209315
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wizard_Spread_Sprite_Red_7
-      rect:
-        serializedVersion: 2
-        x: 453
-        y: 3
-        width: 54
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aaa766f4304d543a1993bb6914a43534
-      internalID: -283437491
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wizard_Spread_Sprite_Red_8
-      rect:
-        serializedVersion: 2
-        x: 517
-        y: 3
-        width: 54
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 71d82ede4580849d2842c60d1f358b4a
-      internalID: 1072940876
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wizard_Spread_Sprite_Red_9
-      rect:
-        serializedVersion: 2
-        x: 581
-        y: 2
-        width: 54
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2dcf8c5c98c044dfbbea2209ca18dd88
-      internalID: 230494816
+      spriteID: 162b133687aac4700959e3e2cd5a897e
+      internalID: -338957999
       vertices: []
       indices: 
       edges: []
@@ -317,16 +212,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Wizard_Spread_Sprite_Red_0: -824741510
-      Wizard_Spread_Sprite_Red_1: 478198879
-      Wizard_Spread_Sprite_Red_2: -1926860289
-      Wizard_Spread_Sprite_Red_3: 606695665
-      Wizard_Spread_Sprite_Red_4: -1452917450
-      Wizard_Spread_Sprite_Red_5: 891477895
-      Wizard_Spread_Sprite_Red_6: -1816209315
-      Wizard_Spread_Sprite_Red_7: -283437491
-      Wizard_Spread_Sprite_Red_8: 1072940876
-      Wizard_Spread_Sprite_Red_9: 230494816
+      Fireball_v3_spread_0: 1396348948
+      Fireball_v3_spread_1: 226182564
+      Fireball_v3_spread_2: 1355560484
+      Fireball_v3_spread_3: -2022701924
+      Fireball_v3_spread_4: -338957999
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

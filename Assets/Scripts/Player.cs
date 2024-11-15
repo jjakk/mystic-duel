@@ -10,10 +10,13 @@ public class Player : MonoBehaviour {
     public int moveSpeed;
     public int maxHealth;
     private int health;
+    private DamageFlash _damageFlash;
     private bool isEnabled;
     // private int highScore;
     public Image healthBar;
     private ScreenShake screenShake;
+    private ScreenShake backgroundShake;
+    [SerializeField] private GameObject backgroundObject = default ;
     [SerializeField] private ParticleSystem explosionParticleSystem = default ;
     [SerializeField] private GameObject smokeEffect10;
     [SerializeField] private GameObject smokeEffect50;
@@ -21,8 +24,12 @@ public class Player : MonoBehaviour {
     private int lastScoreSmoke = 0;
     private GameManager gameManager;
     private AudioSource audioSource;
-
+    private AudioSource audioSourceMove;
     public AudioClip powerUpSoundEffect;
+    public AudioClip takeDamageSoundEffect;
+    public AudioClip moveSoundEffect;
+    public AudioClip moveSoundEffect2;
+    public AudioClip gainLifeSounfEffect;
 
     public KeyCode actionKey;
 
@@ -30,11 +37,15 @@ public class Player : MonoBehaviour {
     void Start() {
         this.reset();
         screenShake = Camera.main.GetComponent<ScreenShake>();
+        backgroundShake = backgroundObject.GetComponent<ScreenShake>();
         smokeEffect10.SetActive(false);
         smokeEffect50.SetActive(false);
         smokeEffect100.SetActive(false);
         gameManager = FindObjectOfType<GameManager>();
+        _damageFlash = GetComponent<DamageFlash>();
         audioSource = gameObject.AddComponent<AudioSource>();
+        audioSourceMove = gameObject.AddComponent<AudioSource>();
+        audioSourceMove.volume = 0.2f;
     }
 
     // Update is called once per frame
@@ -64,6 +75,8 @@ public class Player : MonoBehaviour {
             if(Input.GetKeyDown(actionKey)) {
                 GameManager.decrementScore();
                 this.flipDirection();
+                audioSourceMove.PlayOneShot(moveSoundEffect);
+                audioSourceMove.PlayOneShot(moveSoundEffect2);
             }
         }
 
@@ -91,10 +104,20 @@ public class Player : MonoBehaviour {
         if(health > maxHealth) {
             health = maxHealth;
         }
+
+        if(damage < 0)
+        {
+            audioSource.PlayOneShot(gainLifeSounfEffect);
+        }
+
         healthBar.fillAmount = ((float)health / maxHealth);
-        explosionParticleSystem.Play();
+        
         if(damage > 0) {
+            audioSource.PlayOneShot(takeDamageSoundEffect);
+            //_damageFlash.CallDamageFlash();
+            explosionParticleSystem.Play();
             screenShake.TriggerShake();
+            backgroundShake.TriggerShake();
             smokeEffect10.SetActive(false);
             smokeEffect50.SetActive(false);
             smokeEffect100.SetActive(false);
@@ -126,5 +149,7 @@ public class Player : MonoBehaviour {
         else {
             direction = Direction.Right;
         }
+
+        GetComponent<SpriteRenderer>().flipX = (direction == Direction.Left);
     }
 }
