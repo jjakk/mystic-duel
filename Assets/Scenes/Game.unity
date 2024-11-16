@@ -1964,12 +1964,6 @@ MonoBehaviour:
   moveSpeed: 10
   maxHealth: 10
   healthBar: {fileID: 0}
-<<<<<<< Updated upstream
-  explosionParticleSystem: {fileID: 1678918749}
-  smokeEffect10: {fileID: 577538203}
-  smokeEffect50: {fileID: 1069328802}
-  smokeEffect100: {fileID: 2138338085}
-=======
   backgroundObject: {fileID: 0}
   explosionParticleSystem: {fileID: 0}
   smokeEffect10: {fileID: 0}
@@ -1980,7 +1974,6 @@ MonoBehaviour:
   moveSoundEffect: {fileID: 0}
   moveSoundEffect2: {fileID: 0}
   gainLifeSounfEffect: {fileID: 0}
->>>>>>> Stashed changes
   actionKey: 0
 --- !u!212 &924440339
 SpriteRenderer:
