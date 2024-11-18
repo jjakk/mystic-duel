@@ -23,13 +23,18 @@ public class Player : MonoBehaviour {
     [SerializeField] private GameObject smokeEffect100;
     private int lastScoreSmoke = 0;
     private GameManager gameManager;
+
+    //Audio variables
     private AudioSource audioSource;
     private AudioSource audioSourceMove;
     public AudioClip powerUpSoundEffect;
     public AudioClip takeDamageSoundEffect;
     public AudioClip moveSoundEffect;
     public AudioClip moveSoundEffect2;
-    public AudioClip gainLifeSounfEffect;
+    public AudioClip gainLifeSoundEffect;
+
+    //Flash
+    private SimpleDamageFlash simpleFlash;
 
     public KeyCode actionKey;
 
@@ -46,6 +51,8 @@ public class Player : MonoBehaviour {
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSourceMove = gameObject.AddComponent<AudioSource>();
         audioSourceMove.volume = 0.2f;
+
+        simpleFlash = gameObject.GetComponent<SimpleDamageFlash>();
     }
 
     // Update is called once per frame
@@ -107,13 +114,14 @@ public class Player : MonoBehaviour {
 
         if(damage < 0)
         {
-            audioSource.PlayOneShot(gainLifeSounfEffect);
+            audioSource.PlayOneShot(gainLifeSoundEffect);
         }
 
         healthBar.fillAmount = ((float)health / maxHealth);
         
         if(damage > 0) {
             audioSource.PlayOneShot(takeDamageSoundEffect);
+            simpleFlash.Flash();
             //_damageFlash.CallDamageFlash();
             explosionParticleSystem.Play();
             screenShake.TriggerShake();

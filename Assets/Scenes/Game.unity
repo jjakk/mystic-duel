@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 74220797}
   - component: {fileID: 74220798}
   - component: {fileID: 74220803}
+  - component: {fileID: 74220804}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -317,7 +318,7 @@ MonoBehaviour:
   takeDamageSoundEffect: {fileID: 8300000, guid: 36b1b1891df2d4f179bafcd2f6ca61ac, type: 3}
   moveSoundEffect: {fileID: 8300000, guid: f69f5eb4412ff4d82b41dceeca829163, type: 3}
   moveSoundEffect2: {fileID: 8300000, guid: 16824b4855c864149a36350e23f5c592, type: 3}
-  gainLifeSounfEffect: {fileID: 8300000, guid: 2eee90123c2d74d5f84794d0590a4106, type: 3}
+  gainLifeSoundEffect: {fileID: 8300000, guid: 2eee90123c2d74d5f84794d0590a4106, type: 3}
   actionKey: 0
 --- !u!212 &74220801
 SpriteRenderer:
@@ -339,7 +340,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -411,6 +412,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &74220804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74220791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0484aa867d484225a546903f0a5c7fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 12125365c543344babbc1a8b11eaa5b4, type: 2}
+  duration: 0.05
 --- !u!1 &118784629
 GameObject:
   m_ObjectHideFlags: 0
@@ -1973,7 +1988,7 @@ MonoBehaviour:
   takeDamageSoundEffect: {fileID: 0}
   moveSoundEffect: {fileID: 0}
   moveSoundEffect2: {fileID: 0}
-  gainLifeSounfEffect: {fileID: 0}
+  gainLifeSoundEffect: {fileID: 0}
   actionKey: 0
 --- !u!212 &924440339
 SpriteRenderer:
