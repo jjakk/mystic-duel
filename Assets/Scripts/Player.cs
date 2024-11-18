@@ -60,18 +60,21 @@ public class Player : MonoBehaviour {
         int currentScore = GameManager.getScore();
         if (currentScore >= lastScoreSmoke + 15)
         {
+            Debug.Log("15 points wo taking damage");
             smokeEffect10.SetActive(true);
             // audioSource.PlayOneShot(powerUpSoundEffect);
         }
 
         if (currentScore >= lastScoreSmoke + 50)
         {
+            Debug.Log("50 points wo taking damage");
             smokeEffect50.SetActive(true);
             // audioSource.PlayOneShot(powerUpSoundEffect);
         }
 
         if (currentScore >= lastScoreSmoke + 100)
         {
+            Debug.Log("100 points wo taking damage");
             smokeEffect10.SetActive(false);
             smokeEffect100.SetActive(true);
             // audioSource.PlayOneShot(powerUpSoundEffect);
@@ -122,10 +125,11 @@ public class Player : MonoBehaviour {
         if(damage > 0) {
             audioSource.PlayOneShot(takeDamageSoundEffect);
             simpleFlash.Flash();
-            //_damageFlash.CallDamageFlash();
             explosionParticleSystem.Play();
             screenShake.TriggerShake();
-            backgroundShake.TriggerShake();
+            //backgroundShake.TriggerShake();
+
+            Debug.Log("Took damage");
             smokeEffect10.SetActive(false);
             smokeEffect50.SetActive(false);
             smokeEffect100.SetActive(false);
