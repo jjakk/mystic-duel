@@ -18,10 +18,14 @@ public class Player : MonoBehaviour {
     private ScreenShake backgroundShake;
     [SerializeField] private GameObject backgroundObject = default ;
     [SerializeField] private ParticleSystem explosionParticleSystem = default ;
+    
+    //Smoke variables
     [SerializeField] private GameObject smokeEffect10;
     [SerializeField] private GameObject smokeEffect50;
     [SerializeField] private GameObject smokeEffect100;
     private int lastScoreSmoke = 0;
+    
+    //Game manager
     private GameManager gameManager;
 
     //Audio variables
@@ -36,6 +40,13 @@ public class Player : MonoBehaviour {
     //Flash
     private SimpleDamageFlash simpleFlash;
 
+    //Shield Variables
+    private bool shieldActive = false;
+    [SerializeField] public float shieldDuration = 5f;
+    [SerializeField] private GameObject shieldVisual;
+    private Coroutine shieldCoroutine; // Variable to track/stop the shield timer
+
+    //Idk what this is --pedro
     public KeyCode actionKey;
 
     // Start is called before the first frame update
@@ -96,6 +107,11 @@ public class Player : MonoBehaviour {
         else if(direction == Direction.Left) {
             rigidBody.velocity = new Vector2(-1 * moveSpeed, 0);
         }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            activateShield();
+        }
     }
     public void reset() {
         GameManager.resetScore();
@@ -123,6 +139,13 @@ public class Player : MonoBehaviour {
         healthBar.fillAmount = ((float)health / maxHealth);
         
         if(damage > 0) {
+            if (shieldActive)
+            {
+                Debug.Log("Shield absorbed the damage!");
+                deactivateShield();
+                return;
+            }
+            
             audioSource.PlayOneShot(takeDamageSoundEffect);
             simpleFlash.Flash();
             explosionParticleSystem.Play();
@@ -163,5 +186,32 @@ public class Player : MonoBehaviour {
         }
 
         GetComponent<SpriteRenderer>().flipX = (direction == Direction.Left);
+    }
+
+    public void activateShield()
+    {
+        if (shieldActive) return;
+        
+        shieldActive = true;
+        Debug.Log("Shield activated");
+        
+        shieldVisual.SetActive(true);
+
+        // Start coroutine to deactivate the shield after the duration
+        shieldCoroutine = StartCoroutine(shieldTimer());
+    }
+
+    private IEnumerator shieldTimer()
+    {
+        yield return new WaitForSeconds(shieldDuration);
+        deactivateShield();
+    }
+
+    public void deactivateShield()
+    {
+        shieldActive = false;
+        Debug.Log("Shield deactivated");
+
+        shieldVisual.SetActive(false);
     }
 }
