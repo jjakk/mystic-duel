@@ -33,14 +33,14 @@ public class GameManager : MonoBehaviour {
     void Start() {
         player = playerObj.GetComponent<Player>();
         player.actionKey = KeyCode.Space;
-        player.reset(); 
+        player.reset(new Vector2(player.moveSpeed, 0));
 
         if (isMultiplayer) {
             secondPlayerObj.SetActive(true);
             secondPlayer = secondPlayerObj.GetComponent<Player>();
             secondPlayer.actionKey = KeyCode.Return;
             secondPlayerHealthBar.SetActive(true);
-            secondPlayer.reset();
+            secondPlayer.reset(new Vector2(-secondPlayer.moveSpeed, 0));
         } else {
             secondPlayerObj.SetActive(false);
         }
@@ -124,9 +124,9 @@ public class GameManager : MonoBehaviour {
     }
 
     public void PlayAgain() {
-        player.reset();
+        player.reset(new Vector2(player.moveSpeed, 0));
         if (isMultiplayer) {
-            secondPlayer.reset();
+            secondPlayer.reset(new Vector2(-secondPlayer.moveSpeed, 0));
         }
         Time.timeScale = 1;
         Resume();

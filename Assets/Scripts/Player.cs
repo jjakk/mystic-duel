@@ -47,11 +47,12 @@ public class Player : MonoBehaviour {
     private Coroutine shieldCoroutine; // Variable to track/stop the shield timer
 
     //Idk what this is --pedro
+    //I have added it to have seperate keys to use the multi player --Kushagra 
     public KeyCode actionKey;
 
     // Start is called before the first frame update
     void Start() {
-        this.reset();
+        //this.reset();
         screenShake = Camera.main.GetComponent<ScreenShake>();
         backgroundShake = backgroundObject.GetComponent<ScreenShake>();
         smokeEffect10.SetActive(false);
@@ -62,8 +63,9 @@ public class Player : MonoBehaviour {
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSourceMove = gameObject.AddComponent<AudioSource>();
         audioSourceMove.volume = 0.2f;
-
         simpleFlash = gameObject.GetComponent<SimpleDamageFlash>();
+        rigidBody = GetComponent<Rigidbody2D>();
+        rigidBody.velocity = new Vector2(moveSpeed, 0);
     }
 
     // Update is called once per frame
@@ -101,24 +103,26 @@ public class Player : MonoBehaviour {
             }
         }
 
-        if(direction == Direction.Right) {
+        if (direction == Direction.Right) {
             rigidBody.velocity = new Vector2(moveSpeed, 0);
         }
-        else if(direction == Direction.Left) {
+        else if (direction == Direction.Left) {
             rigidBody.velocity = new Vector2(-1 * moveSpeed, 0);
         }
+        
 
         if (Input.GetKeyDown(KeyCode.E))
         {
             activateShield();
         }
     }
-    public void reset() {
+    public void reset(Vector2 initialVelocity) {
         GameManager.resetScore();
         health = maxHealth;
         enable();
-        direction = Direction.Idle;
+        direction = initialVelocity.x > 0 ? Direction.Right : Direction.Left;
         rigidBody = GetComponent<Rigidbody2D>();
+        rigidBody.velocity = initialVelocity;
         lastScoreSmoke = 0;
         smokeEffect10.SetActive(false);
         smokeEffect50.SetActive(false);
@@ -214,4 +218,36 @@ public class Player : MonoBehaviour {
 
         shieldVisual.SetActive(false);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        Rigidbody2D rbOther = collision.rigidbody;
+        Rigidbody2D rbSelf = GetComponent<Rigidbody2D>();
+
+        if (rbOther != null && rbSelf != null)
+        {
+            Vector2 relativeVelocity = rbOther.velocity - rbSelf.velocity;
+
+            Vector2 collisionNormal = collision.GetContact(0).normal;
+
+            if (relativeVelocity.magnitude < 0.1f)
+            {
+                rbSelf.position += collisionNormal * 0.1f;
+                rbOther.position -= collisionNormal * 0.1f;
+            }
+            else
+            {
+                Vector2 newVelocitySelf = Vector2.Reflect(rbSelf.velocity, collisionNormal);
+                Vector2 newVelocityOther = Vector2.Reflect(rbOther.velocity, collisionNormal);
+
+                rbSelf.velocity = newVelocitySelf;
+                rbOther.velocity = newVelocityOther;
+
+            }
+
+            flipDirection();
+        }
+    }
+
 }
