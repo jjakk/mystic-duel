@@ -9,10 +9,10 @@ public class Shield : MonoBehaviour
         if (collision.CompareTag("Fireball"))
         {
 
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
 
-            Player player = GetComponentInParent<Player>();
-            player.deactivateShield();
+            //Player player = GetComponentInParent<Player>();
+            //player.deactivateShield();
         }
     }
 }
