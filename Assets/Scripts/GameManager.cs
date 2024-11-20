@@ -64,6 +64,12 @@ public class GameManager : MonoBehaviour {
             highScore = score;
         }
     }
+    public static void addScore(int addAmount) {
+        score += addAmount;
+        if(score > highScore) {
+            highScore = score;
+        }
+    }
     public static void decrementScore() {
         score -= 1;
         if(score < 0) {
