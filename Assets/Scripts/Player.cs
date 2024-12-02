@@ -14,8 +14,12 @@ public class Player : MonoBehaviour {
     private bool isEnabled;
     // private int highScore;
     public Image healthBar;
+
+    // Screen Shake variables
     private ScreenShake screenShake;
     private ScreenShake backgroundShake;
+
+
     [SerializeField] private GameObject backgroundObject = default ;
     [SerializeField] private ParticleSystem explosionParticleSystem = default ;
     
@@ -42,9 +46,10 @@ public class Player : MonoBehaviour {
 
     //Shield Variables
     private bool shieldActive = false;
-    [SerializeField] public float shieldDuration = 5f;
+    [SerializeField] private float shieldDuration = 0.5f;
     [SerializeField] private GameObject shieldVisual;
     private Coroutine shieldCoroutine; // Variable to track/stop the shield timer
+    [SerializeField] private ParticleSystem ps;
 
     //Idk what this is --pedro
     //I have added it to have seperate keys to use the multi player --Kushagra 
@@ -66,6 +71,10 @@ public class Player : MonoBehaviour {
         simpleFlash = gameObject.GetComponent<SimpleDamageFlash>();
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.velocity = new Vector2(moveSpeed, 0);
+
+        //shieldDuration = (float)ps.main.startLifetime;
+        //Debug.Log("Shield Duration: ", shieldDuration.ToString());
+        
     }
 
     // Update is called once per frame
@@ -90,6 +99,7 @@ public class Player : MonoBehaviour {
             Debug.Log("100 points wo taking damage");
             smokeEffect10.SetActive(false);
             smokeEffect100.SetActive(true);
+            screenShake.StartContinuousShake(0.05f);
             // audioSource.PlayOneShot(powerUpSoundEffect);
         }
         
@@ -127,6 +137,7 @@ public class Player : MonoBehaviour {
         smokeEffect10.SetActive(false);
         smokeEffect50.SetActive(false);
         smokeEffect100.SetActive(false);
+        screenShake.StopContinuousShake();
     }
 
     public void takeDamage(int damage) {
@@ -160,6 +171,7 @@ public class Player : MonoBehaviour {
             smokeEffect10.SetActive(false);
             smokeEffect50.SetActive(false);
             smokeEffect100.SetActive(false);
+            screenShake.StopContinuousShake();
         }
 
         lastScoreSmoke = GameManager.getScore();
