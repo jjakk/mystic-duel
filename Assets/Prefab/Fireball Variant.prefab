@@ -104,7 +104,7 @@ Rigidbody2D:
   m_Mass: 0.001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1.0041957
+  m_GravityScale: 1.0040458
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -130,7 +130,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifespan: 2
   damage: 1
-  player: {fileID: 0}
   smoke: {fileID: 6271704975253100786}
   animator: {fileID: 4544097919243999272}
 --- !u!61 &1538596846910374833

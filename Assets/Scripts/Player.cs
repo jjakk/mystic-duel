@@ -31,6 +31,7 @@ public class Player : MonoBehaviour {
     
     //Game manager
     private GameManager gameManager;
+    private int streak;
 
     //Audio variables
     private AudioSource audioSource;
@@ -71,10 +72,15 @@ public class Player : MonoBehaviour {
         simpleFlash = gameObject.GetComponent<SimpleDamageFlash>();
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.velocity = new Vector2(moveSpeed, 0);
+        streak = 0;
 
         //shieldDuration = (float)ps.main.startLifetime;
         //Debug.Log("Shield Duration: ", shieldDuration.ToString());
         
+    }
+
+    public int getStreak() {
+        return streak;
     }
 
     // Update is called once per frame
@@ -82,24 +88,24 @@ public class Player : MonoBehaviour {
         int currentScore = GameManager.getScore();
         if (currentScore >= lastScoreSmoke + 15)
         {
-            Debug.Log("15 points wo taking damage");
+            streak = 1;
             smokeEffect10.SetActive(true);
             // audioSource.PlayOneShot(powerUpSoundEffect);
         }
 
         if (currentScore >= lastScoreSmoke + 50)
         {
-            Debug.Log("50 points wo taking damage");
+            streak = 2;
             smokeEffect50.SetActive(true);
             // audioSource.PlayOneShot(powerUpSoundEffect);
         }
 
         if (currentScore >= lastScoreSmoke + 100)
         {
-            Debug.Log("100 points wo taking damage");
+            streak = 3;
             smokeEffect10.SetActive(false);
             smokeEffect100.SetActive(true);
-            screenShake.StartContinuousShake(0.05f);
+            // screenShake.StartContinuousShake(0.05f);
             // audioSource.PlayOneShot(powerUpSoundEffect);
         }
         
@@ -137,6 +143,7 @@ public class Player : MonoBehaviour {
         smokeEffect10.SetActive(false);
         smokeEffect50.SetActive(false);
         smokeEffect100.SetActive(false);
+        streak = 0;
         screenShake.StopContinuousShake();
     }
 

@@ -5,7 +5,6 @@ using UnityEngine;
 public class Fireball : MonoBehaviour {
     [SerializeField]private float lifespan;
     [SerializeField]private int damage;
-    [SerializeField]private Player player;
     [SerializeField] private GameObject smoke;
     public Animator animator;
 

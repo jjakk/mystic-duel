@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class FireballSpawning : MonoBehaviour {
     public Fireball fireball;
-    public Fireball powerup;
+    public Potion powerup;
     public Coin coin;
+    public GameObject playerObj;
+    private Player player;
     [SerializeField]private float spawnDelay;
     [SerializeField]private float fireballGravityScale;
     [SerializeField]private float spawnDelayAcceleration;
@@ -14,6 +16,7 @@ public class FireballSpawning : MonoBehaviour {
     void Start() {
         fireball.GetComponent<Rigidbody2D>().gravityScale = fireballGravityScale;
         StartCoroutine(startSpawning());
+        player = playerObj.GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -25,9 +28,21 @@ public class FireballSpawning : MonoBehaviour {
         spawnFireball();
     }
     void spawnFireball() {
-        int chance = ((int) Random.Range(0, 100));
-        bool genPowerup = chance == 7;
-        bool genCoin = chance == 8;
+        int genCode = ((int) Random.Range(0, 100));
+        bool genPowerup = genCode == 0;
+        bool genCoin = genCode == 1;
+        int streak = player.getStreak();
+        if(streak > 0){
+            genCoin = genCoin || genCode == 2;
+        }
+        if(streak > 1) {
+            genCoin = genCoin || genCode == 3;
+        }
+        if(streak > 2) {
+            genCoin = genCoin || genCode == 4;
+        }
+
+
         if(genPowerup) {
             Instantiate(powerup, new Vector3(Random.Range(-7.5f, 7.5f), 6, 0), Quaternion.identity);
         }

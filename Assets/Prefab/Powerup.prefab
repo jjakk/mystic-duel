@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5603953457741439593}
   - component: {fileID: 7118830629135568871}
-  - component: {fileID: 4732898471251114487}
   - component: {fileID: 6038245825045819900}
   - component: {fileID: 5250592889047098436}
   - component: {fileID: -6261494745737776627}
+  - component: {fileID: -5587657690888006187}
   m_Layer: 0
   m_Name: Powerup
   m_TagString: Untagged
@@ -64,23 +64,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4732898471251114487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2905834118371617011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9e8523a9c20342b296d65a9ecf64034, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifespan: 10
-  damage: -1
-  player: {fileID: 0}
-  smoke: {fileID: 3983132462610307092}
-  animator: {fileID: 0}
 --- !u!61 &6038245825045819900
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -199,6 +182,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-5587657690888006187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2905834118371617011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87cd04ab9c464d34b0bfce2c07234d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifespan: 10
+  boost: 10
 --- !u!1 &3983132462610307092
 GameObject:
   m_ObjectHideFlags: 0
