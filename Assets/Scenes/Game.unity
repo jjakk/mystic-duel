@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuMusic: {fileID: 8300000, guid: 087fc18be7b674e0fbed2d18b6bd39bd, type: 3}
-  gameMusic: {fileID: 8300000, guid: 3690d6c4640694f5fb8578f9fc5ab3bb, type: 3}
+  gameMusic: {fileID: 8300000, guid: 25a8e30ca92d3443eb82a513b0296d34, type: 3}
 --- !u!4 &48281181
 Transform:
   m_ObjectHideFlags: 0
@@ -1534,8 +1534,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireball: {fileID: 2465208434535214208, guid: b0ce6ef70ddc9442c80177d0a3e8bf19, type: 3}
-  powerup: {fileID: 0}
+  powerup: {fileID: -5587657690888006187, guid: 21b509c8e19a449abb8c7af678915e41, type: 3}
   coin: {fileID: 281727988222351068, guid: 501aaa0e8c81d4b38857ba29e5ab1500, type: 3}
+  playerObj: {fileID: 74220791}
   spawnDelay: 0.25
   fireballGravityScale: 1
   spawnDelayAcceleration: 0.00005
@@ -12836,7 +12837,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 1.55
 --- !u!114 &1437505650
 MonoBehaviour:
   m_ObjectHideFlags: 0
