@@ -181,7 +181,7 @@ public class Player : MonoBehaviour {
             screenShake.StopContinuousShake();
         }
 
-        lastScoreSmoke = GameManager.getScore();
+        lastScoreSmoke = GameManager.getScore(); //LOOK HERE TO IMPLEMENT FIREBALL COUNTER MULTIPLIER WHATEVER
     }
 
     public int getHealth() {
