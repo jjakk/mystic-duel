@@ -24,10 +24,11 @@ public class Player : MonoBehaviour {
     [SerializeField] private ParticleSystem explosionParticleSystem = default ;
     
     //Smoke variables
-    [SerializeField] private GameObject smokeEffect10;
+    [SerializeField] private GameObject smokeEffect15;
     [SerializeField] private GameObject smokeEffect50;
     [SerializeField] private GameObject smokeEffect100;
     private int lastScoreSmoke = 0;
+    private bool canActivateSmokeEffect15 = false;
     
     //Game manager
     private GameManager gameManager;
@@ -41,6 +42,7 @@ public class Player : MonoBehaviour {
     public AudioClip moveSoundEffect;
     public AudioClip moveSoundEffect2;
     public AudioClip gainLifeSoundEffect;
+    public AudioClip coinSoundEffect;
 
     //Flash
     private SimpleDamageFlash simpleFlash;
@@ -61,9 +63,10 @@ public class Player : MonoBehaviour {
         //this.reset();
         screenShake = Camera.main.GetComponent<ScreenShake>();
         backgroundShake = backgroundObject.GetComponent<ScreenShake>();
-        smokeEffect10.SetActive(false);
+        smokeEffect15.SetActive(false);
         smokeEffect50.SetActive(false);
         smokeEffect100.SetActive(false);
+        canActivateSmokeEffect15 = true;
         gameManager = FindObjectOfType<GameManager>();
         _damageFlash = GetComponent<DamageFlash>();
         audioSource = gameObject.AddComponent<AudioSource>();
@@ -86,10 +89,11 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         int currentScore = GameManager.getScore();
-        if (currentScore >= lastScoreSmoke + 15)
+        if (canActivateSmokeEffect15 && currentScore >= lastScoreSmoke + 15)
         {
             streak = 1;
-            smokeEffect10.SetActive(true);
+            smokeEffect15.SetActive(true);
+            canActivateSmokeEffect15 = false;
             // audioSource.PlayOneShot(powerUpSoundEffect);
         }
 
@@ -103,7 +107,7 @@ public class Player : MonoBehaviour {
         if (currentScore >= lastScoreSmoke + 100)
         {
             streak = 3;
-            smokeEffect10.SetActive(false);
+            smokeEffect15.SetActive(false);
             smokeEffect100.SetActive(true);
             // screenShake.StartContinuousShake(0.05f);
             // audioSource.PlayOneShot(powerUpSoundEffect);
@@ -140,7 +144,7 @@ public class Player : MonoBehaviour {
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.velocity = initialVelocity;
         lastScoreSmoke = 0;
-        smokeEffect10.SetActive(false);
+        smokeEffect15.SetActive(false);
         smokeEffect50.SetActive(false);
         smokeEffect100.SetActive(false);
         streak = 0;
@@ -175,9 +179,10 @@ public class Player : MonoBehaviour {
             //backgroundShake.TriggerShake();
 
             Debug.Log("Took damage");
-            smokeEffect10.SetActive(false);
+            smokeEffect15.SetActive(false);
             smokeEffect50.SetActive(false);
             smokeEffect100.SetActive(false);
+            canActivateSmokeEffect15 = true;
             screenShake.StopContinuousShake();
         }
 
@@ -268,5 +273,12 @@ public class Player : MonoBehaviour {
             flipDirection();
         }
     }
+
+    public void CollectCoin(int coinWorth)
+    {
+        GameManager.addScore(coinWorth);
+        audioSource.PlayOneShot(coinSoundEffect);
+    }
+
 
 }

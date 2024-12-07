@@ -314,7 +314,7 @@ MonoBehaviour:
   healthBar: {fileID: 182629894}
   backgroundObject: {fileID: 465745261}
   explosionParticleSystem: {fileID: 2145353621}
-  smokeEffect10: {fileID: 544388212}
+  smokeEffect15: {fileID: 544388212}
   smokeEffect50: {fileID: 2094462669}
   smokeEffect100: {fileID: 1468362068}
   powerUpSoundEffect: {fileID: 8300000, guid: 1aef3864d3f18401db3c70b033b33858, type: 3}
@@ -322,6 +322,7 @@ MonoBehaviour:
   moveSoundEffect: {fileID: 8300000, guid: 961e64ee014bf40178c5b4f449722e20, type: 3}
   moveSoundEffect2: {fileID: 8300000, guid: 16824b4855c864149a36350e23f5c592, type: 3}
   gainLifeSoundEffect: {fileID: 8300000, guid: 2eee90123c2d74d5f84794d0590a4106, type: 3}
+  coinSoundEffect: {fileID: 8300000, guid: 28d4138c8e03a4b52a978daf2aaf139f, type: 3}
   shieldDuration: 5
   shieldVisual: {fileID: 1437505647}
   ps: {fileID: 549816285}
@@ -1612,7 +1613,7 @@ GameObject:
   - component: {fileID: 544388214}
   - component: {fileID: 544388213}
   m_Layer: 0
-  m_Name: Smoke10
+  m_Name: Smoke15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13873,7 +13874,7 @@ MonoBehaviour:
   healthBar: {fileID: 355856444}
   backgroundObject: {fileID: 465745261}
   explosionParticleSystem: {fileID: 1821095001}
-  smokeEffect10: {fileID: 889406759}
+  smokeEffect15: {fileID: 0}
   smokeEffect50: {fileID: 677914565}
   smokeEffect100: {fileID: 308722056}
   powerUpSoundEffect: {fileID: 8300000, guid: 1aef3864d3f18401db3c70b033b33858, type: 3}
@@ -13881,6 +13882,7 @@ MonoBehaviour:
   moveSoundEffect: {fileID: 8300000, guid: 961e64ee014bf40178c5b4f449722e20, type: 3}
   moveSoundEffect2: {fileID: 8300000, guid: 16824b4855c864149a36350e23f5c592, type: 3}
   gainLifeSoundEffect: {fileID: 8300000, guid: 2eee90123c2d74d5f84794d0590a4106, type: 3}
+  coinSoundEffect: {fileID: 0}
   shieldDuration: 5
   shieldVisual: {fileID: 0}
   ps: {fileID: 0}
