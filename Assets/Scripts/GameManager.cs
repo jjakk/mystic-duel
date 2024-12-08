@@ -51,10 +51,15 @@ public class GameManager : MonoBehaviour {
     void Update() {
         scoreText.text = score.ToString();
         if (!isGameOver && (player.getHealth() == 0 || (isMultiplayer && secondPlayer.getHealth() == 0))) {
-        GameOver();
-    }
-        if(Input.GetKey(KeyCode.P)) {
-            Pause();
+            GameOver();
+        }
+        if(Input.GetKeyUp(KeyCode.Escape)) {
+            if(pauseMenu.activeInHierarchy){
+                Resume();
+            }
+            else {
+                Pause();
+            }
         }
     }
     // Score Methods
