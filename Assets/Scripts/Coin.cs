@@ -19,7 +19,8 @@ public class Coin : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Player"){
             Player player = other.GetComponent<Player>();
-            player.CollectCoin(worth);
+            // player.CollectCoin(worth);
+            GameManager.coins += 1;
             Destroy(this.gameObject);
         }
     }

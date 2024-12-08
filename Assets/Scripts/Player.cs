@@ -116,7 +116,7 @@ public class Player : MonoBehaviour {
         if(isEnabled) {
             // Use the player-specific action key
             if(Input.GetKeyDown(actionKey)) {
-                GameManager.decrementScore();
+                // GameManager.decrementScore();
                 this.flipDirection();
                 audioSourceMove.PlayOneShot(moveSoundEffect);
                 audioSourceMove.PlayOneShot(moveSoundEffect2);
@@ -131,9 +131,11 @@ public class Player : MonoBehaviour {
         }
         
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            activateShield();
+        if (Input.GetKeyDown(KeyCode.E)) {
+            if(GameManager.coins >= 5) {
+                activateShield();
+                GameManager.coins -= 5;
+            }
         }
     }
     public void reset(Vector2 initialVelocity) {

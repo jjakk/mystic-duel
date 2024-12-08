@@ -19,10 +19,12 @@ public class GameManager : MonoBehaviour {
     [SerializeField]private GameObject gameOverMenu;
     [SerializeField]private GameObject hud;
     // Scoring text outputs
+    [SerializeField]private TextMeshProUGUI coinsText;
     [SerializeField]private TextMeshProUGUI scoreText;
     [SerializeField]private TextMeshProUGUI finalScore;
     // Score variables
     public static int score = 0;
+    public static int coins = 0;
     private static int highScore;
 
     public static bool isMultiplayer = false;
@@ -50,6 +52,7 @@ public class GameManager : MonoBehaviour {
 
     void Update() {
         scoreText.text = score.ToString();
+        coinsText.text = coins.ToString();
         if (!isGameOver && (player.getHealth() == 0 || (isMultiplayer && secondPlayer.getHealth() == 0))) {
             GameOver();
         }
