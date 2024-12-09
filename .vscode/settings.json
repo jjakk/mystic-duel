@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Mystic Duel.sln"
+    "dotnet.defaultSolution": "mystic-duel.sln"
 }
