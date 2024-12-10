@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifespan: 10
-  boost: 10
+  boost: 1
 --- !u!1 &3983132462610307092
 GameObject:
   m_ObjectHideFlags: 0
