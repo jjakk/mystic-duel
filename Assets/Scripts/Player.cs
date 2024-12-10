@@ -58,6 +58,8 @@ public class Player : MonoBehaviour {
     //I have added it to have seperate keys to use the multi player --Kushagra 
     public KeyCode actionKey;
 
+    public KeyCode shieldActionKey;
+
     // Start is called before the first frame update
     void Start() {
         //this.reset();
@@ -131,7 +133,7 @@ public class Player : MonoBehaviour {
         }
         
 
-        if (Input.GetKeyDown(KeyCode.E)) {
+        if (Input.GetKeyDown(shieldActionKey)) {
             if(GameManager.coins >= 5) {
                 activateShield();
                 GameManager.coins -= 5;

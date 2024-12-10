@@ -35,12 +35,14 @@ public class GameManager : MonoBehaviour {
     void Start() {
         player = playerObj.GetComponent<Player>();
         player.actionKey = KeyCode.Space;
+        player.shieldActionKey = KeyCode.E;
         player.reset(new Vector2(player.moveSpeed, 0));
 
         if (isMultiplayer) {
             secondPlayerObj.SetActive(true);
             secondPlayer = secondPlayerObj.GetComponent<Player>();
             secondPlayer.actionKey = KeyCode.Return;
+            secondPlayer.shieldActionKey = KeyCode.Semicolon;
             secondPlayerHealthBar.SetActive(true);
             secondPlayer.reset(new Vector2(-secondPlayer.moveSpeed, 0));
         } else {
