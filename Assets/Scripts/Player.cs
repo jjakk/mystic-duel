@@ -43,6 +43,7 @@ public class Player : MonoBehaviour {
     public AudioClip moveSoundEffect2;
     public AudioClip gainLifeSoundEffect;
     public AudioClip coinSoundEffect;
+    public AudioClip shieldSoundEffect;
 
     //Flash
     private SimpleDamageFlash simpleFlash;
@@ -171,8 +172,8 @@ public class Player : MonoBehaviour {
         if(damage > 0) {
             if (shieldActive)
             {
-                Debug.Log("Shield absorbed the damage!");
-                deactivateShield();
+                Debug.Log("Shield absorbed the damage");
+                //deactivateShield();
                 return;
             }
             
@@ -227,6 +228,7 @@ public class Player : MonoBehaviour {
         shieldActive = true;
         Debug.Log("Shield activated");
         
+        audioSource.PlayOneShot(shieldSoundEffect);
         shieldVisual.SetActive(true);
 
         // Start coroutine to deactivate the shield after the duration
