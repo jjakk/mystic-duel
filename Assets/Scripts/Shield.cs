@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    // private AudioSource audioSource;
+    public AudioClip hitShieldSoundEffect;
+    [SerializeField] private SoundManager soundManager;
+    
+    void Start()
     {
-        if (collision.CompareTag("Fireball"))
+        // audioSource = gameObject.AddComponent<AudioSource>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Fireball")
         {
-
-            //Destroy(collision.gameObject);
-
-            //Player player = GetComponentInParent<Player>();
-            //player.deactivateShield();
+            // Debug.Log("Play damn fuckin hit sfx");
+            soundManager.PlayShieldHit(hitShieldSoundEffect);
+            // audioSource.PlayOneShot(hitShieldSoundEffect);
         }
     }
 }

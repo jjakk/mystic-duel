@@ -168,7 +168,7 @@ public class Player : MonoBehaviour {
         }
 
         healthBar.fillAmount = ((float)health / maxHealth);
-        
+
         if(damage > 0) {
             if (shieldActive)
             {
@@ -283,6 +283,7 @@ public class Player : MonoBehaviour {
     public void CollectCoin(int coinWorth)
     {
         GameManager.addScore(coinWorth);
+        Debug.Log("Played Coin sfx");
         audioSource.PlayOneShot(coinSoundEffect);
     }
 

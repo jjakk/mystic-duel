@@ -5,6 +5,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour {
     [SerializeField]private float lifespan;
     [SerializeField]private int worth;
+    
     // Start is called before the first frame update
     void Start() {
         StartCoroutine(startCountdown());
