@@ -280,9 +280,9 @@ public class Player : MonoBehaviour {
         }
     }
 
-    public void CollectCoin(int coinWorth)
+    public void CollectCoin()
     {
-        GameManager.addScore(coinWorth);
+        // GameManager.addScore(coinWorth);
         Debug.Log("Played Coin sfx");
         audioSource.PlayOneShot(coinSoundEffect);
     }
