@@ -356,7 +356,7 @@ MonoBehaviour:
   smokeEffect50: {fileID: 2094462669}
   smokeEffect100: {fileID: 1468362068}
   powerUpSoundEffect: {fileID: 8300000, guid: 1aef3864d3f18401db3c70b033b33858, type: 3}
-  takeDamageSoundEffect: {fileID: 8300000, guid: 36b1b1891df2d4f179bafcd2f6ca61ac, type: 3}
+  takeDamageSoundEffect: {fileID: 8300000, guid: 7923814af26954c77ac1d64b86cbb160, type: 3}
   moveSoundEffect: {fileID: 8300000, guid: 961e64ee014bf40178c5b4f449722e20, type: 3}
   moveSoundEffect2: {fileID: 8300000, guid: 16824b4855c864149a36350e23f5c592, type: 3}
   gainLifeSoundEffect: {fileID: 8300000, guid: 2eee90123c2d74d5f84794d0590a4106, type: 3}
